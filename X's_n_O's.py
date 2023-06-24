@@ -9,6 +9,7 @@
 gameboard = list(range(1, 10))
 token_x = "X"
 token_o = "0"
+win_coord = ((0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)) # win combinations
 
 
 def draw_gameboard(board):
@@ -30,10 +31,22 @@ def is_cell_empty(n):
         return False
     else:
         return True
+    
+
+def has_win_combo(token_sequence):
+    for i in range(0, len(token_sequence)-2): 
+        temp = ((token_sequence[i]-1), (token_sequence[i+1]-1), (token_sequence[i+2]-1))
+        if temp in win_coord:
+            win = True
+    return win
+            
+def main(gameboard):
+    count = 0
+    win = False
+    
 
 
 draw_gameboard(gameboard)
-
 
 # ci = 0  # counts users' inputs
 # while ci < 9:
@@ -49,5 +62,3 @@ draw_gameboard(gameboard)
 print("##################\n# Start of input #\n##################")
 
 print("##################\n#  End of input  #\n##################")
-
-# draw_gameboard(gameboard)
