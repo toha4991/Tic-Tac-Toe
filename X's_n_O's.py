@@ -40,25 +40,36 @@ def has_win_combo(token_sequence):
             win = True
     return win
             
-def main(gameboard):
+
+def player_input(token):
+    valid = False
+    while valid == False:
+        player_answer = int(input("where to put" +token+ ":"))
+        if player_answer in range(1,10):
+            gameboard[player_answer-1] = token
+            valid = True
+        else:
+            print("Enter number 1-9")
+    
+    
+def main(board):
     count = 0
-    win = False
+    # win = False
+    while count < 9:
+        if count%2 == 0:
+            player_input(token_x)
+            count += 1
+        else:
+            player_input(token_o)
+            count += 1
     
 
 
+
+
+
 draw_gameboard(gameboard)
-
-# ci = 0  # counts users' inputs
-# while ci < 9:
-#     ci += 1
-#     temp = int(input("Please enter cell number(1-9) for X:"))
-#     gameboard[temp-1] = player_x_token
-#     ci += 1
-#     draw_gameboard(gameboard)
-#     temp = int(input("Please enter cell number(1-9) for 0:"))
-#     gameboard[temp-1] = player_0_token
-#     draw_gameboard(gameboard)
-
 print("##################\n# Start of input #\n##################")
-
+main(gameboard)
 print("##################\n#  End of input  #\n##################")
+draw_gameboard(gameboard)
