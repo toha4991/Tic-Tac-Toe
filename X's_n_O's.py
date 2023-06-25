@@ -43,11 +43,18 @@ def has_win_combo(token_sequence):
 
 def player_input(token):
     valid = False
+    x_token_seq, o_token_seq = [], []
     while valid == False:
         player_answer = int(input("where to put" +token+ ":"))
         if player_answer in range(1,10):
             gameboard[player_answer-1] = token
-            valid = True
+            if token == "X":
+                x_token_seq.append(player_answer)
+                x_token_seq.sort()
+            elif token == "0":
+                o_token_seq.append(player_answer) 
+                o_token_seq.sort()
+                valid = True
         else:
             print("Enter number 1-9")
     
