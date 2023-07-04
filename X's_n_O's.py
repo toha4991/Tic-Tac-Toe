@@ -32,8 +32,8 @@ def is_cell_empty(n):
     else:
         return True
     
-
-def has_win_combo(token_sequence):
+# cheks if player's input haas win combinations in it
+def has_win_combo(token_sequence): 
     win = False
     for i in range(len(token_sequence)-1, 1, -1): 
         temp = [token_sequence[i], token_sequence[i-1], token_sequence[i-2]]
@@ -45,13 +45,16 @@ def has_win_combo(token_sequence):
             
 
 def player_input(token):
-    valid = False
-    while valid == False:
+    valid = False 
+    while valid == False: # repeatedly asks player for input until program gets a valid one
         player_answer = int(input("where to put " +token+ ": "))
         if is_cell_number_correct(player_answer):
             cn = player_answer-1 # cell number
-            gameboard[cn] = token
-            valid = True
+            if gameboard[cn] == token_o or gameboard[cn] == token_x:
+                print("This cell is taken already")
+            else:
+                gameboard[cn] = token
+                valid = True
         else:
             print("Enter a number from the range 1-9")
     return cn
