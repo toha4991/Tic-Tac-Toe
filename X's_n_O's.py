@@ -57,6 +57,7 @@ def player_input(token):
                 valid = True
         else:
             print("Enter a number from the range 1-9")
+            
     return cn
 
     
@@ -68,19 +69,20 @@ def main(board):
             result = player_input(token_x)
             x.append(result)
             count += 1
-            if count > 4:
-                if has_win_combo(x):
-                    print("player X wins!")
-                    break
         elif count%2 == 1:
-            player_input(token_o)
+            result = player_input(token_o)
             o.append(result)                
             count += 1
-            if count > 5:
-                if has_win_combo(o):
-                    print("player O wins!")
-                    break
-        elif count == 9:
+        
+        if count > 4: # count variable receives other value after token input
+            if count%2 == 1 and has_win_combo(x):
+                print("player X wins!")
+                break
+            elif count%2 == 0 and has_win_combo(o):
+                print("player O wins!")
+                break
+
+        if count == 9:
             print("DRAW")
 
 
