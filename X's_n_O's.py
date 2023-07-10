@@ -76,10 +76,10 @@ def main(board):
         
         if count > 4: # count variable receives other value after token input
             if count%2 == 1 and has_win_combo(x):
-                print("player X wins!")
+                print("\n*************************\n* !!! player X wins !!! *\n*************************\n")
                 break
             elif count%2 == 0 and has_win_combo(o):
-                print("player O wins!")
+                print("\n*************************\n* !!! player 0 wins !!! *\n*************************\n")
                 break
 
         if count == 9:
@@ -87,7 +87,7 @@ def main(board):
 
 
 draw_gameboard(gameboard)
-print("##################\n# Start of input #\n##################")
+print("##################\n# Start of input #\n##################\n")
 main(gameboard)
-print("##################\n#  End of input  #\n##################")
+print("##################\n#  End of input  #\n##################\n")
 draw_gameboard(gameboard)
