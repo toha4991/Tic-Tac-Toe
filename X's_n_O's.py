@@ -17,6 +17,7 @@ def draw_gameboard(board):
     for i in range(3):
         print("|", board[0 + i * 3], "|", board[1 + i * 3], "|", board[2 + i * 3], "|")
         print("-" * 13)
+    print("\n")
 
 # checks if cell number entered by a player is correct
 def is_cell_number_correct(n):
@@ -90,4 +91,10 @@ draw_gameboard(gameboard)
 print("##################\n# Start of input #\n##################\n")
 main(gameboard)
 print("##################\n#  End of input  #\n##################\n")
+
+# this loop removes all the elements from the gameboard that are not 'x' or 'o'
+for i in range(0, len(gameboard)):
+    if str(gameboard[i]) not in 'X0':
+        gameboard[i] = ' '
+    
 draw_gameboard(gameboard)
